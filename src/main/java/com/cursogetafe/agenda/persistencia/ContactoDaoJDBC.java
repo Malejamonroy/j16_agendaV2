@@ -98,7 +98,7 @@ public class ContactoDaoJDBC implements ContactoDao {
 
 	@Override
 	public boolean eliminar(int idContacto) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

@@ -24,22 +24,24 @@ public class Contacto implements Comparable<Contacto>,Cloneable ,Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idcontactos")
 	private int idContacto;
 	private String nombre;
 	private String apellidos;
 	private String apodo;
+	
 	@Embedded
 	@AttributeOverride(name = "tipoVia", column = @Column(name = "tipo_via"))
 	@AttributeOverride(name= "codigoPostal", column = @Column(name = "codigo_postal"))
 	private Domicilio dom;
 	
 	@ElementCollection
-	@CollectionTable(name = "telefonos", joinColumns = {@JoinColumn(name= "fk_contacto")})
+	@CollectionTable(name = "telefonos", joinColumns = @JoinColumn(name= "fk_contacto"))
 	@Column(name ="telefono")
 	private Set<String> telefonos;
 	
 	@ElementCollection
-	@CollectionTable(name = "correos", joinColumns = {@JoinColumn(name= "fk_contacto")})
+	@CollectionTable(name = "correos", joinColumns = @JoinColumn(name= "fk_contacto"))
 	@Column(name ="correo")
 	private Set<String> correos;
 	
@@ -140,7 +142,7 @@ public class Contacto implements Comparable<Contacto>,Cloneable ,Serializable{
 	@Override
 	public String toString() {
 		return "Contacto [" + idContacto + ", " + nombre + ", " + apellidos + ", "
-				+ apodo + ", " + dom + ", " + telefonos + ", " + correos + "]";
+				+ apodo +  "]";
 	}
 
 	@Override  //orden natural

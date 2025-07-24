@@ -8,14 +8,14 @@ import jakarta.persistence.Embeddable;
 @Embeddable
 public class Domicilio implements Serializable{
 
-	@Column(name = "tipo_via" )
+	//@Column(name = "tipo_via")//no se debe poner aqui sino en donde se inserta 
 	private String tipoVia;
 	private String via;
 	private int numero;
 	private int piso;
 	private String puerta;
 	
-	@Column(name = "codigo_postal" )
+	//@Column(name = "codigo_postal")
 	private String codigoPostal;
 	private String ciudad;
 	private String provincia;
